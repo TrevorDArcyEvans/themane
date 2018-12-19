@@ -1,0 +1,19 @@
+﻿@model TextSummaryModel
+@{
+  ViewData["Title"] = "Text Summary";
+}
+
+<h2>Text Summary</h2>
+
+<div class="row">
+  <form method="post">
+    <div class="form-group">
+      <label asp-for="InputText" class="control-label">Input Text:</label><br />
+      @Html.TextAreaFor(m => m.InputText, new { rows = 10 })
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Summarise" class="btn btn-default" />
+    </div>
+  </form>
+</div>
