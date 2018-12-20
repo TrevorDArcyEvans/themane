@@ -1,0 +1,41 @@
+﻿@model Themane.Web.Models.SummaryResults
+
+@{
+  ViewData["Title"] = "SummaryResults";
+}
+
+<h2>SummaryResults</h2>
+
+<div>
+  <h4>Summary Results</h4>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.Input)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.Input)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.OpenText)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.OpenText)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.OpenTextSummarizer)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.OpenTextSummarizer)
+    </dd>
+    <dt>
+      @Html.DisplayNameFor(model => model.CodePlexOpenTextSummarizer)
+    </dt>
+    <dd>
+      @Html.DisplayFor(model => model.CodePlexOpenTextSummarizer)
+    </dd>
+  </dl>
+</div>
+<div>
+  <a asp-action="Index">Back</a>
+</div>

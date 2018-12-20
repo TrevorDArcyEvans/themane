@@ -32,7 +32,7 @@ namespace Themane.Web.Controllers
 
     public IActionResult TextSummary()
     {
-      return View();
+      return RedirectToAction("Index", "TextSummary");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
