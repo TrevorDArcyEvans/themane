@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextRank", "TextRank\TextRa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTextSummarizer", "OpenTextSummarizer\OpenTextSummarizer.csproj", "{53F26C5D-B35E-4C56-AAC3-F6D476029DDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodePlex.OpenTextSummarizer", "CodePlex.OpenTextSummarizer\sourceCode\trunk\CodePlex.OpenTextSummarizer\CodePlex.OpenTextSummarizer\CodePlex.OpenTextSummarizer.csproj", "{56395970-49F9-493A-8D41-067404711E07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{53F26C5D-B35E-4C56-AAC3-F6D476029DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53F26C5D-B35E-4C56-AAC3-F6D476029DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53F26C5D-B35E-4C56-AAC3-F6D476029DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56395970-49F9-493A-8D41-067404711E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56395970-49F9-493A-8D41-067404711E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56395970-49F9-493A-8D41-067404711E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56395970-49F9-493A-8D41-067404711E07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

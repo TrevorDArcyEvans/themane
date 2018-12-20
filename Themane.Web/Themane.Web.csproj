@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodePlex.OpenTextSummarizer\sourceCode\trunk\CodePlex.OpenTextSummarizer\CodePlex.OpenTextSummarizer\CodePlex.OpenTextSummarizer.csproj" />
     <ProjectReference Include="..\OpenTextSummarizer\OpenTextSummarizer.csproj" />
     <ProjectReference Include="..\TextRank\TextRank.csproj" />
   </ItemGroup>

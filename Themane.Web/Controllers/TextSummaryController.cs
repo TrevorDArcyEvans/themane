@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using OpenTextSummarizer;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextRank;
 using Themane.Web.Models;
+using CP = CodePlex.OpenTextSummarizer;
 
 namespace Themane.Web.Controllers
 {
@@ -73,18 +71,18 @@ namespace Themane.Web.Controllers
     private string Summarise_CodePlexOpenText(string inputText, int displayPercent)
     {
       var sw = Stopwatch.StartNew();
-      //var args = new CP.OpenTextSummarizer.SummarizerArguments
-      //{
-      //  DisplayPercent = displayPercent,
-      //  InputString = inputText
-      //};
-      //var summarizedDocument = CP.OpenTextSummarizer.Summarizer.Summarize(args);
+      var args = new CP.OpenTextSummarizer.SummarizerArguments
+      {
+        DisplayPercent = displayPercent,
+        InputString = inputText
+      };
+      var summarizedDocument = CP.OpenTextSummarizer.Summarizer.Summarize(args);
       var sb = new StringBuilder();
       sb.AppendLine($"Summarised content in {sw.ElapsedMilliseconds} ms");
       sb.AppendLine(" ===== Summary =============================== ");
-      //summarizedDocument.Sentences.ForEach(s => sb.AppendLine(string.Format("{0}\r\n", s)));
+      summarizedDocument.Sentences.ForEach(s => sb.AppendLine(string.Format("{0}\r\n", s)));
       sb.AppendLine(" ===== Keywords =============================== ");
-      //summarizedDocument.Concepts.ForEach(c => sb.AppendLine(string.Format("\t{0}", c)));
+      summarizedDocument.Concepts.ForEach(c => sb.AppendLine(string.Format("\t{0}", c)));
       return sb.ToString();
     }
   }
