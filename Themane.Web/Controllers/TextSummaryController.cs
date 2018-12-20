@@ -46,7 +46,7 @@ namespace Themane.Web.Controllers
       sb.AppendLine(" ===== Summary =============================== ");
       sb.AppendLine(extract.Item1);
       sb.AppendLine(" ===== Keywords =============================== ");
-      extract.Item2.ForEach(kw => sb.AppendLine(kw));
+      extract.Item2?.ForEach(kw => sb.AppendLine(kw));
       return sb.ToString();
     }
 
