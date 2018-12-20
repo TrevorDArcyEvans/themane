@@ -10,30 +10,17 @@
   <h4>Summary Results</h4>
   <hr />
   <dl class="dl-horizontal">
-    <dt>
-      @Html.DisplayNameFor(model => model.Input)
-    </dt>
-    <dd>
-      @Html.DisplayFor(model => model.Input)
-    </dd>
-    <dt>
-      @Html.DisplayNameFor(model => model.OpenText)
-    </dt>
-    <dd>
-      @Html.DisplayFor(model => model.OpenText)
-    </dd>
-    <dt>
-      @Html.DisplayNameFor(model => model.OpenTextSummarizer)
-    </dt>
-    <dd>
-      @Html.DisplayFor(model => model.OpenTextSummarizer)
-    </dd>
-    <dt>
-      @Html.DisplayNameFor(model => model.CodePlexOpenTextSummarizer)
-    </dt>
-    <dd>
-      @Html.DisplayFor(model => model.CodePlexOpenTextSummarizer)
-    </dd>
+    <dt><br />@Html.DisplayNameFor(model => model.Input)</dt>
+    <dd><br />@Html.TextAreaFor(model => model.Input, htmlAttributes: new { @class = "form-control", @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
+
+    <dt><br />@Html.DisplayNameFor(model => model.OpenText)</dt>
+    <dd><br />@Html.TextAreaFor(model => model.OpenText, htmlAttributes: new { @class = "form-control", @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
+
+    <dt><br />@Html.DisplayNameFor(model => model.OpenTextSummarizer)</dt>
+    <dd><br />@Html.TextAreaFor(model => model.OpenTextSummarizer, htmlAttributes: new { @class = "form-control", @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
+
+    <dt><br />@Html.DisplayNameFor(model => model.CodePlexOpenTextSummarizer)</dt>
+    <dd><br />@Html.TextAreaFor(model => model.CodePlexOpenTextSummarizer, htmlAttributes: new { @class = "form-control", @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
   </dl>
 </div>
 <div>
