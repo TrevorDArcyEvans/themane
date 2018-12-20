@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextRank;
 using Themane.Web.Models;
 
 namespace Themane.Web.Controllers
@@ -40,13 +41,13 @@ namespace Themane.Web.Controllers
     private string Summarise_TextRank(string inputText, int wordLength)
     {
       var sw = Stopwatch.StartNew();
-      //var extract = new ExtractKeyPhrases().Extract(inputText, wordLength);
+      var extract = new ExtractKeyPhrases().Extract(inputText, wordLength);
       var sb = new StringBuilder();
       sb.AppendLine($"Summarised content in {sw.ElapsedMilliseconds} ms");
       sb.AppendLine(" ===== Summary =============================== ");
-      //sb.AppendLine(extract.Item1);
+      sb.AppendLine(extract.Item1);
       sb.AppendLine(" ===== Keywords =============================== ");
-      //extract.Item2.ForEach(kw => sb.AppendLine(kw));
+      extract.Item2.ForEach(kw => sb.AppendLine(kw));
       return sb.ToString();
     }
 

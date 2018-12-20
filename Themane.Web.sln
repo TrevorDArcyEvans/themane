@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Themane.Web", "Themane.Web\Themane.Web.csproj", "{8CC40D97-748C-4D74-9CE2-C67BFA9C2DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Themane.Web", "Themane.Web\Themane.Web.csproj", "{8CC40D97-748C-4D74-9CE2-C67BFA9C2DC9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageRank", "PageRank\PageRank.csproj", "{2037FAAC-601A-45D4-A98F-E19494A108CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextRank", "TextRank\TextRank.csproj", "{D96A3C81-A7FE-43CF-870D-011E8853D5A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8CC40D97-748C-4D74-9CE2-C67BFA9C2DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC40D97-748C-4D74-9CE2-C67BFA9C2DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC40D97-748C-4D74-9CE2-C67BFA9C2DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2037FAAC-601A-45D4-A98F-E19494A108CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2037FAAC-601A-45D4-A98F-E19494A108CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2037FAAC-601A-45D4-A98F-E19494A108CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2037FAAC-601A-45D4-A98F-E19494A108CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96A3C81-A7FE-43CF-870D-011E8853D5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96A3C81-A7FE-43CF-870D-011E8853D5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96A3C81-A7FE-43CF-870D-011E8853D5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96A3C81-A7FE-43CF-870D-011E8853D5A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
