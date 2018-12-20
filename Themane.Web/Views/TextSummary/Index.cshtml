@@ -20,7 +20,7 @@
     <div class="form-group">
       @Html.LabelFor(model => model.TextRank_MaxWords, htmlAttributes: new { @class = "control-label col-md-2" })
       <div class="col-md-10">
-        @Html.TextBoxFor(model => model.TextRank_MaxWords, htmlAttributes: new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.TextRank_MaxWords)
         @Html.ValidationMessageFor(model => model.TextRank_MaxWords, "", new { @class = "text-danger" })
       </div>
     </div>
@@ -28,7 +28,7 @@
     <div class="form-group">
       @Html.LabelFor(model => model.OpenText_MaxSentences, htmlAttributes: new { @class = "control-label col-md-2" })
       <div class="col-md-10">
-        @Html.TextBoxFor(model => model.OpenText_MaxSentences, htmlAttributes: new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.OpenText_MaxSentences)
         @Html.ValidationMessageFor(model => model.OpenText_MaxSentences, "", new { @class = "text-danger" })
       </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="form-group">
       @Html.LabelFor(model => model.CodePlexOpenText_DisplayPercent, htmlAttributes: new { @class = "control-label col-md-2" })
       <div class="col-md-10">
-        @Html.TextBoxFor(model => model.CodePlexOpenText_DisplayPercent, htmlAttributes: new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.CodePlexOpenText_DisplayPercent)
         @Html.ValidationMessageFor(model => model.CodePlexOpenText_DisplayPercent, "", new { @class = "text-danger" })
       </div>
     </div>
