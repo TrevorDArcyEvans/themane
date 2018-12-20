@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OpenTextSummarizer\OpenTextSummarizer.csproj" />
     <ProjectReference Include="..\TextRank\TextRank.csproj" />
   </ItemGroup>
 

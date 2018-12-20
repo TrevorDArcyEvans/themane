@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using OpenTextSummarizer;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -54,18 +55,18 @@ namespace Themane.Web.Controllers
     private string Summarise_OpenText(string inputText, int maxSummSentences)
     {
       var sw = Stopwatch.StartNew();
-      //var args = new SummarizerArguments
-      //{
-      //  MaxSummarySentences = maxSummSentences,
-      //  MaxSummarySizeInPercent = 100
-      //};
-      //var summarizedDocument = Summarizer.Summarize(new DirectTextContentProvider(inputText), args);
+      var args = new SummarizerArguments
+      {
+        MaxSummarySentences = maxSummSentences,
+        MaxSummarySizeInPercent = 100
+      };
+      var summarizedDocument = Summarizer.Summarize(new DirectTextContentProvider(inputText), args);
       var sb = new StringBuilder();
       sb.AppendLine($"Summarised content in {sw.ElapsedMilliseconds} ms");
       sb.AppendLine(" ===== Summary =============================== ");
-      //summarizedDocument.Sentences.ForEach(s => sb.AppendLine(string.Format("{0}\r\n", s)));
+      summarizedDocument.Sentences.ForEach(s => sb.AppendLine(string.Format("{0}\r\n", s)));
       sb.AppendLine(" ===== Keywords =============================== ");
-      //summarizedDocument.Concepts.ForEach(c => sb.AppendLine(string.Format("\t{0}", c)));
+      summarizedDocument.Concepts.ForEach(c => sb.AppendLine(string.Format("\t{0}", c)));
       return sb.ToString();
     }
 
