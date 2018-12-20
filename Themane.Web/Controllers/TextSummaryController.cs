@@ -12,11 +12,11 @@ namespace Themane.Web.Controllers
   {
     public IActionResult Index()
     {
-      return View(new TextSummaryModel());
+      return View(new TextSummary());
     }
 
     [HttpPost]
-    public IActionResult SummaryResults(TextSummaryModel model)
+    public IActionResult SummaryResults(TextSummary model)
     {
       //var txt1 = Task<string>.Factory.StartNew(() => Summarise_TextRank(model.TextRank_MaxWords));
       //var txt2 = Task<string>.Factory.StartNew(() => Summarise_OpenText(model.OpenText_MaxSentences));

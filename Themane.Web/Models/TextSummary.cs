@@ -1,6 +1,6 @@
 ﻿namespace Themane.Web.Models
 {
-  public sealed class TextSummaryModel
+  public sealed class TextSummary
   {
     public string InputText { get; set; } = string.Empty;
     public int TextRank_MaxWords { get; set; } = 500;
