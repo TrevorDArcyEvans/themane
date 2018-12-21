@@ -4,29 +4,79 @@
   ViewData["Title"] = "Summary Results";
 }
 
+<style>
+  .collapsible
+  {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+    .collapsible:after
+    {
+      content: '\02795'; /* Unicode character for "plus" sign (+) */
+      font-size: 13px;
+      color: white;
+      float: right;
+      margin-left: 5px;
+    }
+
+  .active:after
+  {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  .active, .collapsible:hover
+  {
+    background-color: #ccc;
+  }
+
+  .content
+  {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    overflow-y: auto;
+    width: 100%;
+    min-height: 20%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .copy
+  {
+    margin-top: 5px;
+  }
+</style>
 
 <div>
   <h2>Summary Results</h2>
   <hr />
-  <dl class="dl-horizontal">
-    <dt><br />@Html.LabelFor(model => model.Input, "Input")</dt>
-    <dd><br />@Html.TextAreaFor(model => model.Input, htmlAttributes: new { @class = "form-control", @readonly = true, @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
-    <hr />
+  <button class="collapsible">Input</button>
+  @Html.TextAreaFor(model => model.Input, htmlAttributes: new { @class = "form-control content", @readonly = true, @rows = "50" })
+  <hr />
 
-    <dt><br />@Html.LabelFor(model => model.TextRank, "Text Rank")</dt>
-    <dd><br />@Html.TextAreaFor(model => model.TextRank, htmlAttributes: new { @class = "form-control", @readonly = true, @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
-    <dd><br /><button onclick="CopyText('TextRank')" class="btn btn-default">Copy text</button></dd>
-    <hr />
+  <button class="collapsible">Text Rank</button>
+  @Html.TextAreaFor(model => model.TextRank, htmlAttributes: new { @class = "form-control content", @readonly = true, @rows = "50" })
+  <button onclick="CopyText('TextRank')" class="btn btn-default copy">Copy text</button>
+  <hr />
 
-    <dt><br />@Html.LabelFor(model => model.OpenTextSummarizer, "Open Text Summarizer")</dt>
-    <dd><br />@Html.TextAreaFor(model => model.OpenTextSummarizer, htmlAttributes: new { @class = "form-control", @readonly = true, @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
-    <dd><br /><button onclick="CopyText('OpenTextSummarizer')" class="btn btn-default">Copy text</button></dd>
-    <hr />
+  <button class="collapsible">Open Text Summarizer</button>
+  @Html.TextAreaFor(model => model.OpenTextSummarizer, htmlAttributes: new { @class = "form-control content", @readonly = true, @rows = "50" })
+  <button onclick="CopyText('OpenTextSummarizer')" class="btn btn-default copy">Copy text</button>
+  <hr />
 
-    <dt><br />@Html.LabelFor(model => model.CodePlexOpenTextSummarizer, "CodePlex Open Text Summarizer")</dt>
-    <dd><br />@Html.TextAreaFor(model => model.CodePlexOpenTextSummarizer, htmlAttributes: new { @class = "form-control", @readonly = true, @rows = "50", @style = "width: 100%; max-width: 100%;" })</dd>
-    <dd><br /><button onclick="CopyText('CodePlexOpenTextSummarizer')" class="btn btn-default">Copy text</button></dd>
-  </dl>
+  <button class="collapsible">CodePlex Open Text Summarizer</button>
+  @Html.TextAreaFor(model => model.CodePlexOpenTextSummarizer, htmlAttributes: new { @class = "form-control content", @readonly = true, @rows = "50" })
+  <button onclick="CopyText('CodePlexOpenTextSummarizer')" class="btn btn-default copy">Copy text</button>
+  <hr />
 
   <script>
     function CopyText(id)
@@ -39,6 +89,25 @@
 
       /* Copy the text inside the text field */
       document.execCommand("copy");
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++)
+    {
+      coll[i].addEventListener("click", function ()
+      {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block")
+        {
+          content.style.display = "none";
+        } else
+        {
+          content.style.display = "block";
+        }
+      });
     }
   </script>
 </div>
