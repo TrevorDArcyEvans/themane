@@ -37,7 +37,7 @@ namespace Themane.Web.Controllers
       return View(result);
     }
 
-    private string Summarise_TextRank(string inputText, int wordLength)
+    private static string Summarise_TextRank(string inputText, int wordLength)
     {
       var sw = Stopwatch.StartNew();
       var extract = new ExtractKeyPhrases().Extract(inputText, wordLength);
@@ -50,7 +50,7 @@ namespace Themane.Web.Controllers
       return sb.ToString();
     }
 
-    private string Summarise_OpenText(string inputText, int maxSummSentences)
+    private static string Summarise_OpenText(string inputText, int maxSummSentences)
     {
       var sw = Stopwatch.StartNew();
       var args = new SummarizerArguments
@@ -68,7 +68,7 @@ namespace Themane.Web.Controllers
       return sb.ToString();
     }
 
-    private string Summarise_CodePlexOpenText(string inputText, int displayPercent)
+    private static string Summarise_CodePlexOpenText(string inputText, int displayPercent)
     {
       var sw = Stopwatch.StartNew();
       var args = new CP.OpenTextSummarizer.SummarizerArguments
