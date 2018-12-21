@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OpenTextSummarizer;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +11,7 @@ using CP = CodePlex.OpenTextSummarizer;
 
 namespace Themane.Web.Controllers
 {
-  public class TextSummaryController : Controller
+  public sealed class TextSummaryController : Controller
   {
     public IActionResult Index()
     {
@@ -18,6 +19,7 @@ namespace Themane.Web.Controllers
     }
 
     [HttpPost]
+    [Authorize]
     public IActionResult SummaryResults(TextSummary model)
     {
       var txt1 = Task<string>.Factory.StartNew(() => Summarise_TextRank(model.InputText, model.TextRank_MaxWords));
