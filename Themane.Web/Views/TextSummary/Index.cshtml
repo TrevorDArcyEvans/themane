@@ -22,8 +22,8 @@
       <div class="form-group">
         @Html.LabelFor(model => model.TextRank_MaxWords, "Max Words", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-          @Html.TextBoxFor(model => model.TextRank_MaxWords, htmlAttributes: new { type = "range", @style = "width: 400px;", min = "10", max = "10000" })
-          @Html.LabelFor(model => model.TextRank_MaxWords, "", new { @id = "TextRank_MaxWords_indicator" })
+          @Html.TextBoxFor(model => model.TextRank_MaxWords, htmlAttributes: new { type = "range", @class = "col-md-2", @style = "width: 400px;padding-left: 0px;padding-right: 0px;", min = "10", max = "10000" })
+          @Html.LabelFor(model => model.TextRank_MaxWords, "", new { @id = "TextRank_MaxWords_indicator", @class = "col-md-4" })
           @Html.ValidationMessageFor(model => model.TextRank_MaxWords, "", new { @class = "text-danger" })
         </div>
       </div>
@@ -31,8 +31,8 @@
       <div class="form-group">
         @Html.LabelFor(model => model.OpenText_MaxSentences, "Max Sentences", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-          @Html.TextBoxFor(model => model.OpenText_MaxSentences, htmlAttributes: new { type = "range", @style = "width: 400px;", min = "1", max = "1000" })
-          @Html.LabelFor(model => model.OpenText_MaxSentences, "", new { @id = "OpenText_MaxSentences_indicator" })
+          @Html.TextBoxFor(model => model.OpenText_MaxSentences, htmlAttributes: new { type = "range", @class = "col-md-2", @style = "width: 400px;padding-left: 0px;padding-right: 0px;", min = "1", max = "1000" })
+          @Html.LabelFor(model => model.OpenText_MaxSentences, "", new { @id = "OpenText_MaxSentences_indicator", @class = "col-md-4" })
           @Html.ValidationMessageFor(model => model.OpenText_MaxSentences, "", new { @class = "text-danger" })
         </div>
       </div>
@@ -40,8 +40,8 @@
       <div class="form-group">
         @Html.LabelFor(model => model.CodePlexOpenText_DisplayPercent, "Display Percent", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-          @Html.TextBoxFor(model => model.CodePlexOpenText_DisplayPercent, htmlAttributes: new { type = "range", @style = "width: 400px;", min = "1", max = "100" })
-          @Html.LabelFor(model => model.CodePlexOpenText_DisplayPercent, "", new { @id = "CodePlexOpenText_DisplayPercent_indicator" })
+          @Html.TextBoxFor(model => model.CodePlexOpenText_DisplayPercent, htmlAttributes: new { type = "range", @class = "col-md-2", @style = "width: 400px;padding-left: 0px;padding-right: 0px;", min = "1", max = "100" })
+          @Html.LabelFor(model => model.CodePlexOpenText_DisplayPercent, "", new { @id = "CodePlexOpenText_DisplayPercent_indicator", @class = "col-md-4" })
           @Html.ValidationMessageFor(model => model.CodePlexOpenText_DisplayPercent, "", new { @class = "text-danger" })
         </div>
       </div>
