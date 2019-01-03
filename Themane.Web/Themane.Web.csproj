@@ -17,4 +17,10 @@
     <ProjectReference Include="..\TextRank\TextRank.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Administration\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
