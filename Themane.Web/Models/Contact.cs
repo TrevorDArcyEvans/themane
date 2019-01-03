@@ -1,6 +1,6 @@
 ﻿namespace Themane.Web.Models
 {
-  public sealed class Account
+  public sealed class Contact
   {
     public string Id { get; set; }
     public string Surname { get; set; } = string.Empty;

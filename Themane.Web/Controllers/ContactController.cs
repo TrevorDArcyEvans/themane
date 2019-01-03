@@ -5,11 +5,11 @@ using Themane.Web.Models;
 
 namespace Themane.Web.Controllers
 {
-  public sealed class AccountController : Controller
+  public sealed class ContactController : Controller
   {
     private readonly IHttpContextAccessor Context;
 
-    public AccountController(IHttpContextAccessor context)
+    public ContactController(IHttpContextAccessor context)
     {
       Context = context;
     }
@@ -17,7 +17,7 @@ namespace Themane.Web.Controllers
     [Authorize]
     public IActionResult Index()
     {
-      var account = new Account
+      var account = new Contact
       {
         GivenName = Context.GivenName(),
         Surname = Context.Surname(),
