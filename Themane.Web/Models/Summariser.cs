@@ -4,7 +4,7 @@ using System.Text;
 using TextRank;
 using CP = CodePlex.OpenTextSummarizer;
 
-namespace Themane.Web.Controllers
+namespace Themane.Web.Models
 {
   internal static class Summariser
   {
