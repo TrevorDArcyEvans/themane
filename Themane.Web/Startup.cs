@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Themane.Web.Authentications;
+using Themane.Web.Interfaces;
 using ZNetCS.AspNetCore.Authentication.Basic;
 using ZNetCS.AspNetCore.Authentication.Basic.Events;
 
@@ -14,6 +17,8 @@ namespace Themane.Web
 {
   public sealed class Startup
   {
+    private IServiceProvider ServiceProvider { get; set; }
+
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
@@ -25,6 +30,7 @@ namespace Themane.Web
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+      services.AddSingleton<IBasicAuthentication, BasicAuthentication>();
 
       services.Configure<CookiePolicyOptions>(options =>
       {
@@ -47,27 +53,8 @@ namespace Themane.Web
           {
             OnValidatePrincipal = context =>
             {
-              if (context.UserName == context.Password)
-              {
-                var claims = new List<Claim>
-                {
-                  new Claim(ClaimTypes.Name, context.UserName, context.Options.ClaimsIssuer),
-                  new Claim(ClaimTypes.Surname, context.UserName, context.Options.ClaimsIssuer),
-                  new Claim(ClaimTypes.GivenName, context.UserName, context.Options.ClaimsIssuer),
-                  new Claim(ClaimTypes.Email, context.UserName, context.Options.ClaimsIssuer),
-                  new Claim(ClaimTypes.Role, context.UserName, context.Options.ClaimsIssuer)
-                };
-
-                var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, BasicAuthenticationDefaults.AuthenticationScheme));
-                context.Principal = principal;
-              }
-              else
-              {
-                // optional with following default.
-                context.AuthenticationFailMessage = "Authentication failed."; 
-              }
-
-              return Task.CompletedTask;
+              var auth = ServiceProvider.GetService<IBasicAuthentication>();
+              return auth.Authenticate(context);
             }
           };
         });
@@ -76,6 +63,8 @@ namespace Themane.Web
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
+      ServiceProvider = app.ApplicationServices;
+
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
