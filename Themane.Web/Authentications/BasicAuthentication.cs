@@ -21,9 +21,9 @@ namespace Themane.Web.Authentications
       var claims = new List<Claim>
       {
         new Claim(ClaimTypes.Name, context.UserName, context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.Surname, context.UserName, context.Options.ClaimsIssuer),
+        new Claim(ClaimTypes.Surname, context.UserName.ToUpperInvariant(), context.Options.ClaimsIssuer),
         new Claim(ClaimTypes.GivenName, context.UserName, context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.Email, context.UserName, context.Options.ClaimsIssuer),
+        new Claim(ClaimTypes.Email, $"{context.UserName}@{context.UserName.ToUpperInvariant()}", context.Options.ClaimsIssuer),
         new Claim(ClaimTypes.Role, context.UserName, context.Options.ClaimsIssuer)
       };
 
