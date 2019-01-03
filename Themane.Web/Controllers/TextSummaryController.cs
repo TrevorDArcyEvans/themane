@@ -41,17 +41,5 @@ namespace Themane.Web.Controllers
 
       return View(result);
     }
-
-    [Authorize]
-    public IActionResult Account()
-    {
-      var account = new Account
-      {
-        GivenName = Context.GivenName(),
-        Surname = Context.Surname(),
-        Email = Context.Email()
-      };
-      return View(account);
-    }
   }
 }
