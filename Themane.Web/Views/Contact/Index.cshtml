@@ -5,3 +5,32 @@
 }
 
 <h2>Account</h2>
+
+<div class="row">
+  <div class="form-horizontal">
+    <div class="form-group">
+      @Html.LabelFor(model => model.GivenName, "Given Name:", htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.TextBoxFor(model => model.GivenName, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+      </div>
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.Surname, "Surname:", htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.TextBoxFor(model => model.Surname, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+      </div>
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.Email, "Email:", htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+      </div>
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.CompanyId, "Company:", htmlAttributes: new { @class = "control-label col-md-2" })
+      <div class="col-md-10">
+        @Html.TextBoxFor(model => model.CompanyId, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+      </div>
+    </div>
+  </div>
+</div>
