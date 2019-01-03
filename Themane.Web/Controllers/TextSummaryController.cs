@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,6 +9,13 @@ namespace Themane.Web.Controllers
 {
   public sealed class TextSummaryController : Controller
   {
+    private readonly IHttpContextAccessor Context;
+
+    public TextSummaryController(IHttpContextAccessor context)
+    {
+      Context = context;
+    }
+
     public IActionResult Index()
     {
       return View(new TextSummary());
@@ -32,6 +40,18 @@ namespace Themane.Web.Controllers
       };
 
       return View(result);
+    }
+
+    [Authorize]
+    public IActionResult Account()
+    {
+      var account = new Account
+      {
+        GivenName = Context.GivenName(),
+        Surname = Context.Surname(),
+        Email = Context.Email()
+      };
+      return View(account);
     }
   }
 }

@@ -24,6 +24,8 @@ namespace Themane.Web
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
       services.Configure<CookiePolicyOptions>(options =>
       {
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -50,6 +52,9 @@ namespace Themane.Web
                 var claims = new List<Claim>
                 {
                   new Claim(ClaimTypes.Name, context.UserName, context.Options.ClaimsIssuer),
+                  new Claim(ClaimTypes.Surname, context.UserName, context.Options.ClaimsIssuer),
+                  new Claim(ClaimTypes.GivenName, context.UserName, context.Options.ClaimsIssuer),
+                  new Claim(ClaimTypes.Email, context.UserName, context.Options.ClaimsIssuer),
                   new Claim(ClaimTypes.Role, context.UserName, context.Options.ClaimsIssuer)
                 };
 
