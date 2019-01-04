@@ -4,3 +4,18 @@
   ViewData["Title"] = "Administration";
 }
 <h2>Administration</h2>
+
+@foreach (var company in Model.Company)
+{
+  @Html.LabelFor(m => m.Company)
+  @Html.TextBoxFor(m => m.Company, company.Name, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+  <br />
+
+  var companyContact = Model.Contact.Where(x => x.CompanyId == company.Id);
+  @Html.LabelFor(m => m.Contact)
+  @foreach (var contact in companyContact)
+  {
+    @Html.TextBoxFor(m => m.Company, contact.FullName, htmlAttributes: new { @class = "form-control", @style = "width: 100%; max-width: 100%;", @readonly = true })
+  }
+  <hr />
+}

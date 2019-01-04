@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Themane.Web.Interfaces;
 using Themane.Web.Models;
+using Themane.Web.ViewModels;
 
 namespace Themane.Web.Controllers
 {
@@ -21,7 +23,13 @@ namespace Themane.Web.Controllers
     [Authorize(Roles = Roles.Admin)]
     public IActionResult Index()
     {
-      return View();
+      var viewModel = new AdministrationViewModel
+      {
+        Company = _companyDatastore.GetAll().ToList(),
+        Contact = _contactDatastore.GetAll().ToList()
+      };
+
+      return View(viewModel);
     }
   }
 }
