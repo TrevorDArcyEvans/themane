@@ -19,27 +19,19 @@ namespace Themane.Web.Authentications
 
     public Task Authenticate(ValidatePrincipalContext context)
     {
-      // TODO   lookup UserName/email in DB
       // TODO   lookup Password hash in DB
-      if (context.UserName != context.Password)
+      var contact = _contactDatastore.ByEmail(context.UserName);
+      if (contact?.Password != context.Password)
       {
         context.AuthenticationFailMessage = "Authentication failed.";
 
         return Task.CompletedTask;
       }
 
-      // TODO   set Name from DB
-      // TODO   set Surname from DB
-      // TODO   set GivenName from DB
-      // TODO   set Email from DB
-      // TODO   set Role from DB
       var claims = new List<Claim>
       {
-        new Claim(ClaimTypes.Name, context.UserName, context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.Surname, context.UserName.ToUpperInvariant(), context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.GivenName, context.UserName, context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.Email, $"{context.UserName}@{context.UserName.ToUpperInvariant()}", context.Options.ClaimsIssuer),
-        new Claim(ClaimTypes.Role, context.UserName, context.Options.ClaimsIssuer)
+        new Claim(ClaimTypes.Email, $"{contact.Email}", context.Options.ClaimsIssuer),
+        new Claim(ClaimTypes.Role, contact.Role, context.Options.ClaimsIssuer)
       };
 
       var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, BasicAuthenticationDefaults.AuthenticationScheme));

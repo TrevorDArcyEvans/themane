@@ -1,9 +1,11 @@
-﻿using Themane.Web.Models;
+﻿using System.Collections.Generic;
+using Themane.Web.Models;
 
 namespace Themane.Web.Interfaces
 {
   public interface ICompanyDatastore
   {
     Company ById(string id);
+    IEnumerable<Company> GetAll();
   }
 }
