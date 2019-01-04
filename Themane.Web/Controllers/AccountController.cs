@@ -7,7 +7,7 @@ using Themane.Web.ViewModels;
 
 namespace Themane.Web.Controllers
 {
-  public sealed class ContactController : Controller
+  public sealed class AccountController : Controller
   {
     private readonly IHttpContextAccessor _context;
     private readonly IContactDatastore _contactDatastore;
@@ -17,7 +17,7 @@ namespace Themane.Web.Controllers
 
     // TODO   lookup contact
     // TODO   lookup company
-    public ContactController(
+    public AccountController(
       IHttpContextAccessor context,
       IContactDatastore contactDatastore,
       ICompanyDatastore companyDatastore)
