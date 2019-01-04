@@ -9,8 +9,18 @@ namespace Themane.Web.Authentications
 {
   public sealed class BasicAuthentication : IBasicAuthentication
   {
+    private readonly IContactDatastore _contactDatastore;
+
+    public BasicAuthentication(
+      IContactDatastore contactDatastore)
+    {
+      _contactDatastore = contactDatastore;
+    }
+
     public Task Authenticate(ValidatePrincipalContext context)
     {
+      // TODO   lookup UserName/email in DB
+      // TODO   lookup Password hash in DB
       if (context.UserName != context.Password)
       {
         context.AuthenticationFailMessage = "Authentication failed.";
@@ -18,6 +28,11 @@ namespace Themane.Web.Authentications
         return Task.CompletedTask;
       }
 
+      // TODO   set Name from DB
+      // TODO   set Surname from DB
+      // TODO   set GivenName from DB
+      // TODO   set Email from DB
+      // TODO   set Role from DB
       var claims = new List<Claim>
       {
         new Claim(ClaimTypes.Name, context.UserName, context.Options.ClaimsIssuer),

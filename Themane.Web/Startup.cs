@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Themane.Web.Authentications;
+using Themane.Web.Datastores;
 using Themane.Web.Interfaces;
 using ZNetCS.AspNetCore.Authentication.Basic;
 using ZNetCS.AspNetCore.Authentication.Basic.Events;
@@ -28,6 +29,8 @@ namespace Themane.Web
     {
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
       services.AddSingleton<IBasicAuthentication, BasicAuthentication>();
+      services.AddSingleton<IContactDatastore, ContactDatastore>();
+      services.AddSingleton<ICompanyDatastore, CompanyDatastore>();
 
       services.Configure<CookiePolicyOptions>(options =>
       {
