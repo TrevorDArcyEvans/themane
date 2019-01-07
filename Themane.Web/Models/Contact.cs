@@ -1,5 +1,8 @@
-﻿namespace Themane.Web.Models
+﻿using Dapper.Contrib.Extensions;
+
+namespace Themane.Web.Models
 {
+  [Table(nameof(Contact))]
   public sealed class Contact
   {
     public string Id { get; set; }

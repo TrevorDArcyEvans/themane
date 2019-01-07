@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 
 namespace Themane.Web.Models
 {
+  [Table(nameof(Usage))]
   public sealed class Usage
   {
     public string Id { get; set; }

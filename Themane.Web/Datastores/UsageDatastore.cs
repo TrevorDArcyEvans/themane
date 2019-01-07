@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using Themane.Web.Interfaces;
@@ -6,28 +6,28 @@ using Themane.Web.Models;
 
 namespace Themane.Web.Datastores
 {
-  public sealed class UsageDatastore : IUsageDatastore
+  public sealed class UsageDatastore : DatastoreBase<Usage>, IUsageDatastore
   {
-    // TODO   back onto db
-    private readonly List<Usage> _data = new List<Usage>
+    public UsageDatastore(IDbConnectionFactory dbConnectionFactory) :
+      base(dbConnectionFactory)
     {
-      new Usage { Id = "Usage01", ContactId = "trevor"},
-      new Usage { Id = "Usage02", ContactId = "helen"},
-      new Usage { Id = "Usage03", ContactId = "mandy"},
-      new Usage { Id = "Usage04", ContactId = "neil"},
-      new Usage { Id = "Usage05", ContactId = "neil"},
-    };
+    }
 
     public IEnumerable<Usage> ByContact(string contactId)
     {
-      return _data.Where(x => x.ContactId == contactId);
+      return _dbConnection.GetAll<Usage>().Where(x => x.ContactId == contactId);
     }
 
     public Usage Create(Usage usage)
     {
-      usage.Id = Guid.NewGuid().ToString();
-      _data.Add(usage);
-      return usage;
+      using (var trans = _dbConnection.BeginTransaction())
+      {
+        usage.Id = UpdateId(usage.Id);
+        _dbConnection.Insert(usage, trans);
+        trans.Commit();
+
+        return usage;
+      }
     }
   }
 }

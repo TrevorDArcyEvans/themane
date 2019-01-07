@@ -33,6 +33,7 @@ namespace Themane.Web
       services.AddSingleton<ICompanyDatastore, CompanyDatastore>();
       services.AddSingleton<IUsageDatastore, UsageDatastore>();
       services.AddSingleton<IHash, Hash>();
+      services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
 
       services.Configure<CookiePolicyOptions>(options =>
       {
