@@ -31,6 +31,8 @@ namespace Themane.Web
       services.AddSingleton<IBasicAuthentication, BasicAuthentication>();
       services.AddSingleton<IContactDatastore, ContactDatastore>();
       services.AddSingleton<ICompanyDatastore, CompanyDatastore>();
+      services.AddSingleton<IUsageDatastore, UsageDatastore>();
+      services.AddSingleton<IHash, Hash>();
 
       services.Configure<CookiePolicyOptions>(options =>
       {

@@ -3,17 +3,28 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Themane.Web.Interfaces;
 using Themane.Web.Models;
 
 namespace Themane.Web.Controllers
 {
   public sealed class TextSummaryController : Controller
   {
-    private readonly IHttpContextAccessor Context;
+    private readonly IHttpContextAccessor _context;
+    private readonly IContactDatastore _contactDatastore;
+    private readonly IUsageDatastore _usageDatastore;
+    private readonly IHash _hash;
 
-    public TextSummaryController(IHttpContextAccessor context)
+    public TextSummaryController(
+      IHttpContextAccessor context,
+      IContactDatastore contactDatastore,
+      IUsageDatastore usageDatastore,
+      IHash hash)
     {
-      Context = context;
+      _context = context;
+      _contactDatastore = contactDatastore;
+      _usageDatastore = usageDatastore;
+      _hash = hash;
     }
 
     public IActionResult Index()
@@ -30,6 +41,14 @@ namespace Themane.Web.Controllers
       var txt3 = Task<string>.Factory.StartNew(() => Summariser.CodePlexOpenText(model.InputText, model.CodePlexOpenText_DisplayPercent));
       var tasks = new List<Task>(new[] { txt1, txt2, txt3 });
       Task.WaitAll(tasks.ToArray());
+
+      var contact = _contactDatastore.ByEmail(_context.Email());
+      var usage = new Usage
+      {
+        ContactId = contact.Id,
+        InputText = _hash.CreateMD5(model.InputText)
+      };
+      _usageDatastore.Create(usage);
 
       var result = new SummaryResults
       {
