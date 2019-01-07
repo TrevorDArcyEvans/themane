@@ -18,6 +18,11 @@ namespace Themane.Web.Datastores
       return _dbConnection.GetAll<Usage>().Where(x => x.ContactId == contactId);
     }
 
+    public IEnumerable<Usage> ByInputText(string inputText)
+    {
+      return _dbConnection.GetAll<Usage>().Where(x => x.InputText == inputText);
+    }
+
     public Usage Create(Usage usage)
     {
       using (var trans = _dbConnection.BeginTransaction())

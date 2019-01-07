@@ -7,5 +7,6 @@ namespace Themane.Web.Interfaces
   {
     Usage Create(Usage usage);
     IEnumerable<Usage> ByContact(string contactId);
+    IEnumerable<Usage> ByInputText(string inputText);
   }
 }

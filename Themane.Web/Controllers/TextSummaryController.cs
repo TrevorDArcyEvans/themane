@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Themane.Web.Interfaces;
 using Themane.Web.Models;
@@ -43,12 +45,22 @@ namespace Themane.Web.Controllers
       Task.WaitAll(tasks.ToArray());
 
       var contact = _contactDatastore.ByEmail(_context.Email());
-      var usage = new Usage
+      var hash = _hash.CreateMD5(model.InputText);
+      var priorUsage = _usageDatastore
+        .ByInputText(hash)
+        .Where(x => x.ContactId == contact.Id)
+        .OrderBy(x => x.DateTimeUTC)
+        .FirstOrDefault();
+      if (priorUsage == null ||
+        priorUsage?.DateTimeUTC.AddDays(1) < DateTime.Now.ToUniversalTime())
       {
-        ContactId = contact.Id,
-        InputText = _hash.CreateMD5(model.InputText)
-      };
-      _usageDatastore.Create(usage);
+        // only charge if this is a new summary for today
+        _usageDatastore.Create(new Usage
+        {
+          ContactId = contact.Id,
+          InputText = hash
+        });
+      }
 
       var result = new SummaryResults
       {
