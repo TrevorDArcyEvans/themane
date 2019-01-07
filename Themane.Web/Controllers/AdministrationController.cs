@@ -11,22 +11,30 @@ namespace Themane.Web.Controllers
   {
     private readonly IContactDatastore _contactDatastore;
     private readonly ICompanyDatastore _companyDatastore;
+    private readonly IUsageDatastore _usageDatastore;
 
     public AdministrationController(
       IContactDatastore contactDatastore,
-      ICompanyDatastore companyDatastore)
+      ICompanyDatastore companyDatastore,
+      IUsageDatastore usageDatastore)
     {
       _contactDatastore = contactDatastore;
       _companyDatastore = companyDatastore;
+      _usageDatastore = usageDatastore;
     }
 
     [Authorize(Roles = Roles.Admin)]
     public IActionResult Index()
     {
+      var allCompany = _companyDatastore.GetAll();
+      var allContact = allCompany.SelectMany(x => _contactDatastore.ByCompany(x.Id));
+      var allUsage = allContact.SelectMany(x => _usageDatastore.ByContact(x.Id));
+
       var viewModel = new AdministrationViewModel
       {
-        Company = _companyDatastore.GetAll().ToList(),
-        Contact = _contactDatastore.GetAll().ToList()
+        Company = allCompany.ToList(),
+        Contact = allContact.ToList(),
+        Usage = allUsage.ToList()
       };
 
       return View(viewModel);

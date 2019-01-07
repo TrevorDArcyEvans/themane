@@ -15,6 +15,7 @@ namespace Themane.Web.Datastores
       new Usage { Id = "Usage02", ContactId = "helen"},
       new Usage { Id = "Usage03", ContactId = "mandy"},
       new Usage { Id = "Usage04", ContactId = "neil"},
+      new Usage { Id = "Usage05", ContactId = "neil"},
     };
 
     public IEnumerable<Usage> ByContact(string contactId)

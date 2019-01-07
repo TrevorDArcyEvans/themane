@@ -22,12 +22,12 @@ namespace Themane.Web.Datastores
 
     public Contact ByEmail(string email)
     {
-      return GetAll().SingleOrDefault(x => x.Email.ToLowerInvariant() == email.ToLowerInvariant());
+      return _data.SingleOrDefault(x => x.Email.ToLowerInvariant() == email.ToLowerInvariant());
     }
 
-    public IEnumerable<Contact> GetAll()
+    public IEnumerable<Contact> ByCompany(string companyId)
     {
-      return _data;
+      return _data.Where(x => x.CompanyId == companyId);
     }
   }
 }

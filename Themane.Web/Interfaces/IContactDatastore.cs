@@ -6,6 +6,6 @@ namespace Themane.Web.Interfaces
   public interface IContactDatastore
   {
     Contact ByEmail(string email);
-    IEnumerable<Contact> GetAll();
+    IEnumerable<Contact> ByCompany(string companyId);
   }
 }
