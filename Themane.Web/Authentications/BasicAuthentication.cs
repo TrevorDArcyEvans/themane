@@ -9,19 +9,21 @@ namespace Themane.Web.Authentications
 {
   public sealed class BasicAuthentication : IBasicAuthentication
   {
+    private readonly IHash _hash;
     private readonly IContactDatastore _contactDatastore;
 
     public BasicAuthentication(
+      IHash hash,
       IContactDatastore contactDatastore)
     {
+      _hash = hash;
       _contactDatastore = contactDatastore;
     }
 
     public Task Authenticate(ValidatePrincipalContext context)
     {
-      // TODO   lookup Password hash in DB
       var contact = _contactDatastore.ByEmail(context.UserName);
-      if (contact?.Password != context.Password)
+      if (contact?.Password != _hash.CreateMD5(context.Password))
       {
         context.AuthenticationFailMessage = "Authentication failed.";
 
