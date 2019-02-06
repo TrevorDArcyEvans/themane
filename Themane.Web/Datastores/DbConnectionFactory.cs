@@ -32,7 +32,8 @@ namespace Themane.Web.Datastores
       var dbFact = DbProviderFactoryUtils.GetDbProviderFactory(dbType);
       var dbConn = dbFact.CreateConnection();
 
-      dbConn.ConnectionString = (Environment.GetEnvironmentVariable("DATASTORE_CONNECTIONSTRING") ?? _config[$"RepositoryDatabase:{connection}:ConnectionString"]).Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory);
+      dbConn.ConnectionString = (Environment.GetEnvironmentVariable("DATASTORE_CONNECTIONSTRING") ?? _config[$"RepositoryDatabase:{connection}:ConnectionString"])
+        .Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory);
       dbConn.Open();
 
       return dbConn;
