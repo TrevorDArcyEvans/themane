@@ -1,0 +1,37 @@
+
+-- drop tables
+DROP TABLE IF EXISTS Usage;
+DROP TABLE IF EXISTS Contact;
+DROP TABLE IF EXISTS Company;
+
+-- create data tables
+
+CREATE TABLE Company
+(
+  Id TEXT NOT NULL UNIQUE,
+  Name TEXT NOT NULL UNIQUE,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Contact
+(
+  Id TEXT NOT NULL UNIQUE,
+  CompanyId TEXT NOT NULL,
+  GivenName TEXT,
+  Surname TEXT,
+  Email TEXT,
+  Password TEXT,
+  Role TEXT,
+  CONSTRAINT FK_Contact_Company FOREIGN KEY (CompanyId) REFERENCES Company(Id) ON DELETE CASCADE,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Usage
+(
+  Id TEXT NOT NULL UNIQUE,
+  ContactId TEXT NOT NULL,
+  DateTimeUTC DATETIME,
+  InputText TEXT,
+  CONSTRAINT FK_Usage_Contact FOREIGN KEY (ContactId) REFERENCES Contact(Id) ON DELETE CASCADE,
+  PRIMARY KEY (Id)
+);
