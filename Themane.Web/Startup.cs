@@ -94,11 +94,11 @@ namespace Themane.Web
       Console.WriteLine("Settings:");
       Console.WriteLine($"  DATASTORE:");
       Console.WriteLine($"    DATASTORE_CONNECTION        : {Settings.DATASTORE_CONNECTION(Configuration)}");
-      Console.WriteLine($"    DATASTORE_CONNECTIONTYPE    : {Settings.DATASTORE_CONNECTION_TYPE(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
-      Console.WriteLine($"    DATASTORE_CONNECTIONSTRING  : {Settings.DATASTORE_CONNECTION_STRING(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
+      Console.WriteLine($"    DATASTORE_CONNECTION_TYPE   : {Settings.DATASTORE_CONNECTION_TYPE(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
+      Console.WriteLine($"    DATASTORE_CONNECTION_STRING : {Settings.DATASTORE_CONNECTION_STRING(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
 
       Console.WriteLine($"  LOG:");
-      Console.WriteLine($"    LOG_CONNECTIONSTRING : {Settings.LOG_CONNECTION_STRING(Configuration)}");
+      Console.WriteLine($"    LOG_CONNECTION_STRING : {Settings.LOG_CONNECTION_STRING(Configuration)}");
     }
   }
 }
