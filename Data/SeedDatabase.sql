@@ -19,11 +19,11 @@ INSERT INTO Contact (Id, CompanyId, GivenName, Surname, Email, Password, Role) V
  
 
  INSERT INTO Usage(Id, ContactId, DateTimeUTC, InputText) VALUES
-('Usage01', 'trevor', '19650715 10:34:09 AM', 'inputtext01'),
-('Usage02', 'helen' , '20120618 10:34:09 AM', 'inputtext02'),
-('Usage03', 'mandy' , '19631019 12:35:00 AM', 'inputtext03'),
-('Usage04', 'neil'  , '20060220 06:03:00 AM', 'inputtext04'),
-('Usage05', 'neil'  , '20190107 02:20:00 PM', 'inputtext05');
+('Usage01', 'trevor', '1965-07-15 10:34:09.0000000', 'inputtext01'),
+('Usage02', 'helen' , '2012-06-18 10:34:09.0000000', 'inputtext02'),
+('Usage03', 'mandy' , '1963-10-19 00:35:00.0000000', 'inputtext03'),
+('Usage04', 'neil'  , '2006-02-20 06:03:00.0000000', 'inputtext04'),
+('Usage05', 'neil'  , '2019-01-07 14:20:00.0000000', 'inputtext05');
 
 
 
