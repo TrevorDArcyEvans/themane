@@ -13,5 +13,5 @@ RUN dotnet publish -c Release -o /app
 FROM build AS final
 WORKDIR /app
 COPY --from=publish /app .
-#RUN ls -Rall
+
 ENTRYPOINT ["dotnet", "Themane.Web.dll"]
