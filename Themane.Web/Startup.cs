@@ -20,6 +20,8 @@ namespace Themane.Web
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
+
+      DumpSettings();
     }
 
     public IConfiguration Configuration { get; }
@@ -85,6 +87,18 @@ namespace Themane.Web
       {
         routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}");
       });
+    }
+
+    private void DumpSettings()
+    {
+      Console.WriteLine("Settings:");
+      Console.WriteLine($"  DATASTORE:");
+      Console.WriteLine($"    DATASTORE_CONNECTION        : {Settings.DATASTORE_CONNECTION(Configuration)}");
+      Console.WriteLine($"    DATASTORE_CONNECTIONTYPE    : {Settings.DATASTORE_CONNECTION_TYPE(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
+      Console.WriteLine($"    DATASTORE_CONNECTIONSTRING  : {Settings.DATASTORE_CONNECTION_STRING(Configuration, Settings.DATASTORE_CONNECTION(Configuration))}");
+
+      Console.WriteLine($"  LOG:");
+      Console.WriteLine($"    LOG_CONNECTIONSTRING : {Settings.LOG_CONNECTION_STRING(Configuration)}");
     }
   }
 }

@@ -19,8 +19,8 @@ namespace Themane.Web.Datastores
 
     public IDbConnection Get()
     {
-      var connection = _config["RepositoryDatabase:Connection"];
-      var connType = Environment.GetEnvironmentVariable("DATASTORE_CONNECTIONTYPE") ?? _config[$"RepositoryDatabase:{connection}:Type"];
+      var connection = Settings.DATASTORE_CONNECTION(_config);
+      var connType = Settings.DATASTORE_CONNECTION_TYPE(_config, connection);
       var dbType = Enum.Parse<DataAccessProviderTypes>(connType);
 
       // HACK:  workaround for PostgreSql which puts table+column names in lower case
@@ -32,7 +32,7 @@ namespace Themane.Web.Datastores
       var dbFact = DbProviderFactoryUtils.GetDbProviderFactory(dbType);
       var dbConn = dbFact.CreateConnection();
 
-      dbConn.ConnectionString = (Environment.GetEnvironmentVariable("DATASTORE_CONNECTIONSTRING") ?? _config[$"RepositoryDatabase:{connection}:ConnectionString"]).Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory);
+      dbConn.ConnectionString = Settings.DATASTORE_CONNECTION_STRING(_config, connection).Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory);
       dbConn.Open();
 
       return dbConn;
