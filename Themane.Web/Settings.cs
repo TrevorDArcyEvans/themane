@@ -12,9 +12,10 @@ namespace Themane.Web
     public static string DATASTORE_CONNECTION(IConfiguration config) => Environment.GetEnvironmentVariable("DATASTORE_CONNECTION") ?? config["RepositoryDatabase:Connection"];
     public static string DATASTORE_CONNECTION_TYPE(IConfiguration config, string connection) => Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_TYPE") ?? config[$"RepositoryDatabase:{connection}:Type"];
     public static string DATASTORE_CONNECTION_STRING(IConfiguration config, string connection) => (Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_STRING") ?? config[$"RepositoryDatabase:{connection}:ConnectionString"])
-        .Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory)
-        .Replace('\\', Path.DirectorySeparatorChar)
-        .Replace(Path.DirectorySeparatorChar.ToString() + Path.DirectorySeparatorChar.ToString(), Path.DirectorySeparatorChar.ToString());
+      .Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory)
+      .Replace('\\', Path.DirectorySeparatorChar)
+      .Replace('/', Path.DirectorySeparatorChar)
+      .Replace(Path.DirectorySeparatorChar.ToString() + Path.DirectorySeparatorChar.ToString(), Path.DirectorySeparatorChar.ToString());
   }
 #pragma warning restore CS1591
 }
