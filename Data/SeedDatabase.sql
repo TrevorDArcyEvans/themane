@@ -25,14 +25,3 @@ INSERT INTO Contact (Id, CompanyId, GivenName, Surname, Email, Password, Role) V
 ('Usage04', 'neil'  , '2006-02-20 06:03:00.0000000', 'inputtext04'),
 ('Usage05', 'neil'  , '2019-01-07 14:20:00.0000000', 'inputtext05');
 
-
-
-
-
-
-
-
-
-
-
-
