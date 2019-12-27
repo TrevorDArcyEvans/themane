@@ -4,10 +4,20 @@ _We can take some text, analyse it, and generate a concise summary at the click 
 There's even some parameters to play with, so you can tweak it to your tastes, but, honestly,
 the defaults work just fine._
 
+## Background:
 This is a simple app to wrap three different text summarisation algorithms:
 * CodePlex.OpenTextSummarizer
 * Open Text Summarizer
 * Text Rank
+
+The app is written in:
+* C#
+* Blazor
+* Dotnet Core
+
+There is a database to authenticate users and track usage.  Database creation scripts are provided for:
+* Microsoft SQL Server
+* SQLite
 
 There are also various websites which do similar summarisations:
 * https://www.splitbrain.org/services/ots
@@ -35,9 +45,9 @@ Whilst the technique shows a lot of promise, there are a lot of issues:
 * difficulty in training algorithms
 * currently only works (at all) with _short_ articles
 
-## References
+## References:
 A very small selection of articles:
 * https://www.salesforce.com/products/einstein/ai-research/tl-dr-reinforced-model-abstractive-summarization/
 * https://rare-technologies.com/text-summarization-in-python-extractive-vs-abstractive-techniques-revisited/
 
-A search in google will no doubt yield other articles.  
+A search in google will no doubt yield other articles.
