@@ -260,3 +260,7 @@ paket-files/
 __pycache__/
 *.pyc
 /.env
+
+
+# Mono crash dumps
+*.blob
