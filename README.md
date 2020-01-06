@@ -24,6 +24,18 @@ There are also various websites which do similar summarisations:
 * https://deepai.org/machine-learning-model/summarization
 * https://deepai.org/machine-learning-model/text-tagging
 
+## Building
+
+```
+git clone https://github.com/TrevorDArcyEvans/themane.git
+dotnet restore
+dotnet build
+cd Themane.Web
+dotnet run
+```
+
+Navigate to _http://localhost:5000/_
+
 ## Summary:
 _Extractive_ summarisation works well; _abstractive_ summarisation does not.
 
