@@ -10,8 +10,8 @@ namespace Themane.Web
     public static string LOG_CONNECTION_STRING(IConfiguration config) => Environment.GetEnvironmentVariable("LOG_CONNECTION_STRING") ?? config["Log:ConnectionString"];
 
     public static string DATASTORE_CONNECTION(IConfiguration config) => Environment.GetEnvironmentVariable("DATASTORE_CONNECTION") ?? config["RepositoryDatabase:Connection"];
-    public static string DATASTORE_CONNECTION_TYPE(IConfiguration config, string connection) => Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_TYPE") ?? config[$"RepositoryDatabase:{connection}:Type"];
-    public static string DATASTORE_CONNECTION_STRING(IConfiguration config, string connection) => (Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_STRING") ?? config[$"RepositoryDatabase:{connection}:ConnectionString"])
+    public static string DATASTORE_CONNECTION_TYPE(IConfiguration config, string connection) => Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_TYPE") ?? config[$"RepositoryDatabase:{connection}:Type"] ?? "SqLite";
+    public static string DATASTORE_CONNECTION_STRING(IConfiguration config, string connection) => (Environment.GetEnvironmentVariable("DATASTORE_CONNECTION_STRING") ?? config[$"RepositoryDatabase:{connection}:ConnectionString"] ?? "Data Source=Data/themane.sqlite3;")
       .Replace("|DataDirectory|", AppDomain.CurrentDomain.BaseDirectory)
       .Replace('\\', Path.DirectorySeparatorChar)
       .Replace('/', Path.DirectorySeparatorChar)
