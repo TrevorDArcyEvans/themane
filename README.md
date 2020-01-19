@@ -59,7 +59,13 @@ Whilst the technique shows a lot of promise, there are a lot of issues:
 
 ## References:
 A very small selection of articles:
-* https://www.salesforce.com/products/einstein/ai-research/tl-dr-reinforced-model-abstractive-summarization/
+* https://www.salesforce.com/products/einstein/ai-research/tl-dr-reinforced-model-abstractive-summarization
+* https://www.theverge.com/2017/5/14/15637588/salesforce-algorithm-automatically-summarizes-text-machine-learning-ai
 * https://rare-technologies.com/text-summarization-in-python-extractive-vs-abstractive-techniques-revisited/
+* https://www.technologyreview.com/s/607828/an-algorithm-summarizes-lengthy-text-surprisingly-well
+* https://ai.googleblog.com/2016/08/text-summarization-with-tensorflow.html
+* https://heartbeat.fritz.ai/extractive-text-summarization-using-neural-networks-5845804c7701
+* https://machinelearningmastery.com/gentle-introduction-text-summarization/
+* https://github.com/mathsyouth/awesome-text-summarization
 
 A search in google will no doubt yield other articles.
