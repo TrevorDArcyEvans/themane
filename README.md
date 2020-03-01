@@ -4,6 +4,12 @@ _We can take some text, analyse it, and generate a concise summary at the click 
 There's even some parameters to play with, so you can tweak it to your tastes, but, honestly,
 the defaults work just fine._
 
+![intro](images/themane_web_01.png "intro")
+
+![input](images/themane_web_02.png "input")
+
+![output](images/themane_web_03.png "output")
+
 ## Background:
 This is a simple app to wrap three different text summarisation algorithms:
 * CodePlex.OpenTextSummarizer
