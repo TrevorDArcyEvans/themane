@@ -65,6 +65,8 @@ Whilst the technique shows a lot of promise, there are a lot of issues:
 
 ## References:
 A very small selection of articles:
+* https://techxplore.com/news/2020-11-ai-tool-lengthy-papers-sentence.html
+  * https://scitldr.apps.allenai.org/
 * https://www.salesforce.com/products/einstein/ai-research/tl-dr-reinforced-model-abstractive-summarization
 * https://www.theverge.com/2017/5/14/15637588/salesforce-algorithm-automatically-summarizes-text-machine-learning-ai
 * https://rare-technologies.com/text-summarization-in-python-extractive-vs-abstractive-techniques-revisited/
