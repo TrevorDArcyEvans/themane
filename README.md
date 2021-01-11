@@ -65,6 +65,7 @@ Whilst the technique shows a lot of promise, there are a lot of issues:
 
 ## References:
 A very small selection of articles:
+* https://www.cambridge.org/core/journals/natural-language-engineering/article/natural-language-generation-the-commercial-state-of-the-art-in-2020/BA2417D73AF29F8073FF5B611CDEB97F
 * https://techxplore.com/news/2020-11-ai-tool-lengthy-papers-sentence.html
   * https://scitldr.apps.allenai.org/
 * https://www.salesforce.com/products/einstein/ai-research/tl-dr-reinforced-model-abstractive-summarization
