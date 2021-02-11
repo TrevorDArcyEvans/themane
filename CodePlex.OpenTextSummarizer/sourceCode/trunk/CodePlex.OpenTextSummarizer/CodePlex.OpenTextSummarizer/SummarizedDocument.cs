@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CodePlex.OpenTextSummarizer.OpenTextSummarizer
 {
-    public class SummarizedDocument
-    {
-        public List<string> Concepts { get; set; }
-        public List<string> Sentences { get; set; }
+  public class SummarizedDocument
+  {
+    public List<string> Concepts { get; set; }
+    public List<string> Sentences { get; set; }
 
-        internal SummarizedDocument()
-        {
-            Sentences = new List<string>();
-            Concepts = new List<string>();
-        }
+    internal SummarizedDocument()
+    {
+      Sentences = new List<string>();
+      Concepts = new List<string>();
     }
+  }
 }

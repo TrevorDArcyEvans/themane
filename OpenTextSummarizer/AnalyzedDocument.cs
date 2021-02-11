@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace OpenTextSummarizer
 {
-    public class AnalyzedDocument
-    {
-        public List<TextUnitScore> ScoredTextUnits { get; set; }
+  public class AnalyzedDocument
+  {
+    public List<TextUnitScore> ScoredTextUnits { get; set; }
 
-        public List<SentenceScore> ScoredSentences { get; set; }
-    }
+    public List<SentenceScore> ScoredSentences { get; set; }
+  }
 }
